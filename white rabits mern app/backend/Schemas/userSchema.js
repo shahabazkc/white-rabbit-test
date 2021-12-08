@@ -2,13 +2,18 @@ const { mongoose } = require('../Config/mongooseConn');
 
 var Schema = mongoose.Schema;
 
+//User Schema
 const userSchema = new mongoose.Schema({
     FirstName: { type: String, required: true },
+    
     LastName: { type: String, required: true },
+    
     Indroduction: {
         type: String, required: true, min: [12, 'Must be at least 12'],
     },
+
     Email: {
+        //validating the Email is unique or not
         type: String, required: true, validate: {
             validator: async function (Email) {
                 const user = await this.constructor.findOne({ Email });
@@ -27,7 +32,9 @@ const userSchema = new mongoose.Schema({
     Phone: {
         type: Number, required: true, min: [10, "minimum 10 digits needed"]
     },
+    
     Experience: { type: String, required: true, min: [12, "minimum 10 digits needed"] },
+    
     Achievements: { type: String, required: true, min: [12, "minimum 10 digits needed"] }
 });
 

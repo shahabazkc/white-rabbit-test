@@ -18,7 +18,7 @@ app.use(cors({
     credentials: true
 }));
 
-
+//Using the main router
 app.use('/', mainRouter);
 
 

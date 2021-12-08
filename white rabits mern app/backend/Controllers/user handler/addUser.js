@@ -1,5 +1,7 @@
 const { mongoose } = require('../../Config/mongooseConn');
 const { userSchema } = require('../../Schemas/userSchema');
+
+//Add user Controller
 const addUser = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
