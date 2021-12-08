@@ -8,6 +8,7 @@ export const fetchUsers = async () => {
         return res;
     }
     catch (err) {
+          //Handling the error
         return { status: false }
     }
 }
@@ -18,16 +19,18 @@ export const addUser = async (data) => {
         let res = await instance.post('/add-user', data);
         return res;
     } catch (err) {
+        //Handling the error
         return { status: false };
     }
 }
 
-//get user full data
+//Get a user full data
 export const getUser = async (userId) => {
     try {
         let res = await instance.get(`/get-user/${userId}`);
         return res;
     } catch (err) {
+        //Handling the error
         return { status: false }
     }
 }

@@ -9,15 +9,14 @@ function MainComponent() {
     const [usersFound, setUsersFound] = useState(false);
     const [users, setUsers] = useState([]);
     const [message, setMessage] = useState('');
+    
+    //Fetching the Users after component loaded
     useEffect(() => {
-
-        //Fetching the Users after component loaded
         fetchUsersHandler().then((response) => {
-            if (!response.status === false && response.data.response.length > 0) {
-
+            if (!response.status === false && response?.data?.response.length > 0) {
+                //Adding the users to the users hook 
                 setUsersFound(true); setUsers([...response.data.response]);
             }
-
             else {
                 setUsersFound(true);
                 setUsers([]);
@@ -27,18 +26,18 @@ function MainComponent() {
             setUsersFound(true);
             setUsers([]);
             setMessage('something went wrong while fetching users');
-            console.log("something went wrong while fetching users", err)
         });
 
     }, []);
 
     const fetchUsersHandler = async () => {
+        //fetching the users
         try {
             let res = await fetchUsers();
             return res;
         }
         catch (e) {
-            console.log("error here", e)
+            //Handling the error
             return { status: false };
         }
     };
@@ -70,7 +69,7 @@ function MainComponent() {
                                         <tr key={index}>
                                             <td>{elem.FirstName} {elem.LastName}</td>
                                             <td>{elem.Email}</td>
-                                            <td><Link to={"/view-user/"+elem._id}><button className="btn btn-success">View User</button></Link></td>
+                                            <td><Link to={"/view-user/" + elem._id}><button className="btn btn-success">View User</button></Link></td>
                                         </tr>
                                     ))
                                 }

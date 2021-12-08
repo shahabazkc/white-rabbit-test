@@ -2,9 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getUser } from '../../utils/requestHandlers';
 function ViewUser() {
+
+    //getting the params of user id
     const { id } = useParams();
+
     const [user, setUser] = useState({});
+
+    //runs when the component loaded
     useEffect(() => {
+
+        //Get user with the params id
+        //fetching the user details
         getUser(id).then((response) => {
             if (response.data?.response) {
                 setUser(response.data.response);
@@ -12,11 +20,13 @@ function ViewUser() {
                 setUser({})
             }
         }).catch((err) => {
+            //Handling the error while fetching
             setUser({});
         })
     }, [id])
     return (
         <div className="container  text-dark">
+
             {
 
                 user ?
