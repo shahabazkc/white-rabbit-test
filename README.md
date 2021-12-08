@@ -3,7 +3,7 @@
 
 ### `Folder Structure`
 
-client -> Front-end of the application
+/white rabits mern app/client -> Front-end of the application
 
 
-backend -> Backend of the application
+/white rabits mern app/backend -> Backend of the application
