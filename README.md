@@ -4,4 +4,6 @@
 ### `Folder Structure`
 
 client -> Front-end of the application
+
+
 backend -> Backend of the application
